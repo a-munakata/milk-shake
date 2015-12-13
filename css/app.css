@@ -1,0 +1,294 @@
+/* header */
+header {
+  background: #333;
+  padding: 10px;
+  color: #fefefe;
+  height: 35px;
+  box-sizing: border-box;
+  line-height: 15px;
+}
+
+/* main */
+.main {
+  padding: 30px;
+  display: none;
+}
+.main__projects {
+  padding: 0 0 20px;
+  margin: 0 -5px 0;
+}
+.main__newProject {
+  border: 1px solid #333;
+  box-shadow: 0 1px 0 #333;
+  padding: 10px;
+}
+.main__newProject:hover {
+  box-shadow: none;
+  position: relative;
+  top: 1px;
+}
+.projectItem {
+  width: 100px;
+  background: #fff;
+  height: 120px;
+  display: inline-block;
+  color: #fff;
+  margin: 5px;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1);
+  font-size: 0;
+  vertical-align: bottom;
+}
+.projectItemCreate {
+  opacity: 0.5;
+}
+.projectItemCreate.active {
+  opacity: 1;
+}
+.projectItem:before {
+  box-shadow: none;
+}
+.projectItem:hover:before {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2),0 6px 0 -3px #f6f6f6,0 7px 2px -3px rgba(0,0,0,.2),0 1pc 0 -10px #f6f6f6,0 13px 4px -6px rgba(0,0,0,.1);
+  /*box-shadow: 0 1px 1px rgba(0,0,0,.2),0 8px 0 -3px #f6f6f6,0 9px 1px -3px rgba(0,0,0,.2),0 1pc 0 -6px #f6f6f6,0 17px 2px -6px rgba(0,0,0,.2);*/
+}
+.projectItemCreate:before {
+  display: none;
+}
+
+.projectItem__showProject,
+.projectItem__createProject {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  word-wrap: break-word;
+  color: rgba(175,47,47,.45);
+  z-index: 1;
+  position: relative;
+  border: 0;
+  text-align: center;
+}
+.projectItem__createProject::-webkit-input-placeholder {
+  color: rgba(175,47,47,.25);
+}
+.projectItem__createProject:focus::-webkit-input-placeholder {
+  color: rgba(175,47,47,0);
+}
+.projectItem__createProject {
+  overflow: scroll;
+}
+.projectItem__deleteProject {
+  position: absolute;
+  background: rgba(255,255,255,0.5);
+  display: none;
+  background: none;
+  color: rgba(51, 51, 51, 0.5);
+  font-size: 13px;
+  transform: scale(1.3, 1);
+  top: 3px;
+  right: 3px;
+  z-index: 3;
+}
+.projectItem:hover .projectItem__deleteProject {
+  display: block;
+}
+
+
+/* newProject */
+.newProject {
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  overflow: hidden;
+  background: #fff;
+  position: absolute;
+  display: none;
+}
+
+/* showProject */
+.showProject {
+  top: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  overflow: hidden;
+  background: #fff;
+  position: absolute;
+  display: none;
+}
+.showProject__inner {
+  padding: 30px;
+}
+.showProject__back {
+  border: 1px solid #333;
+  box-shadow: 0 1px 0 #333;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  background: #14484c;
+  color: #fff;
+}
+.showProject__titleWrapper {
+  background: #71B0B5;
+  color: #fff;
+  margin: -30px -30px 20px -1px;
+}
+.showProject__title {
+  padding: 10px 10px 10px 9px;
+  display: inline-block;
+}
+.showProject__buttons {
+  display: inline-block;
+}
+.showProject__todos {
+  list-style-type: none;
+  margin: 0 0 30px;
+  position: relative;
+  z-index: 1;
+}
+.showProject__todoLabel {
+  white-space: pre;
+  word-break: break-word;
+  padding: 15px 60px 15px 15px;
+  margin-left: 55px;
+  display: block;
+  line-height: 1.2;
+  -webkit-transition: color .4s;
+  transition: color .4s;
+  font-size: 24px;
+  position: relative;
+}
+.showProject__checkbox {
+  text-align: center;
+  width: 55px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  height: 40px;
+  background: 0 0;
+  padding: 0 0 0 15px;
+}
+
+.showProject__checkbox:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+.showProject__checkbox.checked:after,
+.showProject__checkbox:checked:after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.showProject__checkbox.checked ~ .showProject__todoLabel,
+.showProject__checkbox:checked ~ .showProject__todoLabel {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+.showProject__todosWrapper {
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.1);
+  line-height: 1.4em;
+  background: #fff;
+  color: #4d4d4d;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
+  font-smoothing: antialiased;
+  font-weight: 300;
+}
+.showProject__todosWrapper:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,.2),0 8px 0 -3px #f6f6f6,0 9px 1px -3px rgba(0,0,0,.2),0 1pc 0 -6px #f6f6f6,0 17px 2px -6px rgba(0,0,0,.2);
+}
+.showPrject__updateTitle,
+.showProject__cancelUpdateTitle {
+  display: none;
+  border: 1px solid #333;
+  box-shadow: 0 1px 0 #333;
+  padding: 3px;
+  position: relative;
+  background: #fff;
+}
+.showPrject__updateTitle:hover,
+.showProject__cancelUpdateTitle:hover {
+  top: 1px;
+  box-shadow: none;
+}
+.showProject__title:focus ~ .showProject__buttons .showPrject__updateTitle,
+.showProject__title:focus ~ .showProject__buttons .showProject__cancelUpdateTitle {
+  display: inline-block;
+}
+.showProject__createTodo {
+  padding: 1pc 1pc 1pc 60px;
+  border: none;
+  background: rgba(0,0,0,.003);
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,.03);
+  width: 100%;
+  font-size: 24px;
+  box-sizing: border-box;
+}
+.showProject__createTodo::-webkit-input-placeholder {
+  font-weight: 100;
+  font-style: italic;
+  color: #ddd;
+}
+.showProject__createTodo:hover {
+  /*box-shadow: none;*/
+  /*top: 1px;*/
+}
+
+/* common */
+html, body {
+  height: 100%;
+  background: #fefefe;
+  font: 14px 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+[contenteditable="true"]:focus {
+  box-shadow: 0 0 3px #237CD6;
+}
+/* global */
+.message {
+  opacity: 0;
+  z-index: 9999;
+  background: #333;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  padding: 10px;
+  color: #fefefe;
+  box-shadow: 0 1px 4px #333;
+  transition: opacity 0.3s ease;
+}
+
+.message.active{
+  opacity: 1;
+}
