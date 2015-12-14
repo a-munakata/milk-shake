@@ -1,31 +1,35 @@
-var Project = {
-  query: function(args){
-    return $.ajax({
-      type: "GET",
-      url: App.endpoint + "/api/v1/projects",
-      success: function (data) {
+App.Project = function(){};
 
-      }
-    });
-  },
-  create: function(args){
-    // TODO: whitelist登録
-    return $.ajax({
-      type: "POST",
-      url: App.endpoint + "/api/v1/projects",
-      data: args,
-      success: function (data) {
+App.Project.query = function (props){
+  return $.ajax({
+    type: "GET",
+    url: App.ENDPOINT + "/api/v1/projects"
+  });
+};
 
-      }
-    });
-  },
-  destroy: function(args){
-    return $.ajax({
-      type: "DELETE",
-      url: App.endpoint + "/api/v1/projects/" + args.id,
-      success: function (data) {
+App.Project.create = function(props){
+  return $.ajax({
+    type: "POST",
+    url: App.ENDPOINT + "/api/v1/projects",
+    data: props
+  });
+};
 
-      }
-    });
-  }
+App.Project.update = function(props) {
+  return $.ajax({
+    type: "PUT",
+    url: App.ENDPOINT + "/api/v1/projects/" + props.id,
+    data: props
+  })
+};
+
+App.Project.destroy = function(props) {
+  return $.ajax({
+    type: "DELETE",
+    url: App.ENDPOINT + "/api/v1/projects/" + props.id
+  })
+};
+
+App.Project.prototype = {
+  constructor: App.Project
 };

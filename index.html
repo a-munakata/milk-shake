@@ -3,59 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>MILK SHAKE</title>
+
+  <!-- STYLESHEETS -->
   <link rel="stylesheet" type="text/css" href="css/html5-reset.css"  />
   <link rel="stylesheet" type="text/css" href="css/app.css"  />
-
+  <!-- /STYLESHEETS -->
 </head>
 <body>
-<header>
+
+<header class="Header" ms-back-button>
   <h3>MILK SHAKE</h3>
 </header>
 
-<section class="index page main">
-  <div class="main__inner">
-    <ul class="main__projects"></ul>
+<section class="Index" ms-page="index">
+  <div class="Index__Inner">
+    <ul class="Index__ProjectList" ms-project-list></ul>
   </div>
 </section>
 
-<section class="show page showProject">
-  <div class="showProject__inner">
+<section class="Show" ms-page="show">
+  <div class="Show__Inner">
+    <button class="Show__BackButton" ms-back-button></button>
 
-    <!--<div class="showProject__titleWrapper">-->
-      <!--<h1 class="showProject__title" contenteditable="true"></h1>-->
-      <!--<div class="showProject__buttons">-->
-        <!--<button class="showPrject__updateTitle">UPDATE</button>-->
-        <!--<button class="showProject__cancelUpdateTitle">CANCEL</button>-->
-      <!--</div>-->
-    <!--</div>-->
+    <header class="Show__Header" ms-project-header>
+      <h1 class="Show__HeaderTitle" ms-project-title contenteditable="true"></h1>
+      <div class="Show__HeaderButtons">
+        <button class="Show__UpdateTitleButton" ms-update-project-title>UPDATE</button>
+        <button class="Show__CancelUpdateTitleButton">CANCEL</button>
+      </div>
+    </header>
 
-    <div class="showProject__todosWrapper">
-      <input type="text" class="showProject__createTodo" placeholder="What needs to be done?"/>
-      <ul class="showProject__todos"></ul>
-    </div>
-
-    <!--<button class="showProject__back"><</button>-->
-    <!--<button class="showProject__createTodo">+ New Todo</button>-->
+    <article class="Show__Main">
+      <input type="text" class="Show__CreateTodo" ms-todo-input placeholder="What needs to be done?"/>
+      <ul class="Show__TodoList" ms-todo-list></ul>
+    </article>
   </div>
 </section>
 
-<div class="message"></div>
+<div class="Message" ms-message></div>
 
+<!-- SCRIPTS -->
 <script type="text/javascript" src="js/app.js"></script>
-
 <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
-
 <script type="text/javascript" src="js/controllers/projects_controller.js"></script>
-
 <script type="text/javascript" src="js/models/project.js"></script>
 <script type="text/javascript" src="js/models/todo.js"></script>
-
-<script type="text/javascript" src="js/helpers/message.js"></script>
-<script type="text/javascript" src="js/helpers/templates.js"></script>
 
 <script>
   window.onload = App.init;
 </script>
-
+<!-- /SCRIPTS -->
 </body>
 </html>
