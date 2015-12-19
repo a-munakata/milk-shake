@@ -27,9 +27,9 @@
 
     <header class="Show__Header" ms-project-header>
       <h1 class="Show__HeaderTitle" ms-project-title contenteditable="true"></h1>
-      <div class="Show__HeaderButtons">
+      <div class="Show__HeaderButtons" ms-project-buttons>
         <button class="Show__UpdateTitleButton" ms-update-project-title>UPDATE</button>
-        <button class="Show__CancelUpdateTitleButton">CANCEL</button>
+        <button class="Show__CancelUpdateTitleButton" ms-cancel-update-project-title>CANCEL</button>
       </div>
     </header>
 
@@ -40,17 +40,28 @@
   </div>
 </section>
 
-<div class="Message" ms-message></div>
+<ul class="MessageList" ms-message></ul>
 
 <!-- SCRIPTS -->
-<script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="js/controllers/projects_controller.js"></script>
-<script type="text/javascript" src="js/models/project.js"></script>
-<script type="text/javascript" src="js/models/todo.js"></script>
+<script type="text/javascript" src="js/App.js"></script>
+<script type="text/javascript" src="js/controllers/ProjectsController.js"></script>
+<script type="text/javascript" src="js/models/Project.js"></script>
+<script type="text/javascript" src="js/models/Todo.js"></script>
+<script type="text/javascript" src="js/factories/Page.js"></script>
+<script type="text/javascript" src="js/factories/ElementsCollection.js"></script>
+<script type="text/javascript" src="js/factories/Template.js"></script>
+<script type="text/javascript" src="js/factories/KeyCodeCollection.js"></script>
+<script type="text/javascript" src="js/factories/Message.js"></script>
+<script type="text/javascript" src="js/services/ProjectFeature.js"></script>
+<script type="text/javascript" src="js/services/TodoFeature.js"></script>
 
-<script>
-  window.onload = App.init;
+<script type="text/javascript">
+  (function($){
+    $(function(){
+      window.onload = App.init
+    });
+  })(jQuery);
 </script>
 <!-- /SCRIPTS -->
 </body>
