@@ -1,35 +1,35 @@
-App.Project = function(){};
-
-App.Project.query = function (props){
-  return $.ajax({
-    type: "GET",
-    url: App.ENDPOINT + "/api/v1/projects"
-  });
-};
-
-App.Project.create = function(props){
-  return $.ajax({
-    type: "POST",
-    url: App.ENDPOINT + "/api/v1/projects",
-    data: props
-  });
-};
-
-App.Project.update = function(props) {
-  return $.ajax({
-    type: "PUT",
-    url: App.ENDPOINT + "/api/v1/projects/" + props.id,
-    data: props
-  })
-};
-
-App.Project.destroy = function(props) {
-  return $.ajax({
-    type: "DELETE",
-    url: App.ENDPOINT + "/api/v1/projects/" + props.id
-  })
-};
-
-App.Project.prototype = {
-  constructor: App.Project
+App.Project = function(){
+  return {
+    query: function (props){
+      return $.ajax({
+        type: 'GET',
+        url: App.Endpoint + '/api/v1/projects'
+      });
+    },
+    show: function(props){
+      /*
+       unused
+       */
+    },
+    create: function(props){
+      return $.ajax({
+        type: 'POST',
+        url: App.Endpoint + '/api/v1/projects',
+        data: props
+      });
+    },
+    update: function(props) {
+      return $.ajax({
+        type: 'PUT',
+        url: App.Endpoint + '/api/v1/projects/' + props.id,
+        data: props
+      })
+    },
+    destroy: function(props) {
+      return $.ajax({
+        type: 'DELETE',
+        url: App.Endpoint + '/api/v1/projects/' + props.id
+      })
+    }
+  };
 };
